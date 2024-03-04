@@ -1,4 +1,4 @@
-from Lexer import Lexer
+from lexer import Lexer
 
 if __name__ == "__main__":
     while True:

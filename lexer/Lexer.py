@@ -1,4 +1,5 @@
-from Token import Token
+from invalid_character_exception import InvalidCharacterException
+from token import Token
 from typing import List
 
 class Lexer:
