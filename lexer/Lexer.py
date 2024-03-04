@@ -38,7 +38,7 @@ class Lexer:
             elif self.cur_char in self.numbers:
                 tokens.append(self.make_numbers())
             else:
-
+                raise InvalidCharacterException(f"Character {self.cur_char} not recognised")
 
         return tokens
 
