@@ -36,6 +36,8 @@ class Lexer:
                 self.advance()
             elif self.cur_char in self.numbers:
                 tokens.append(self.make_numbers())
+            else:
+
 
         return tokens
 
