@@ -17,19 +17,27 @@ class Lexer:
 
         while self.cur_char:
             if self.cur_char == "+":
-                tokens.append("PLUS")
+                tokens.append(Token("PLUS"))
+                self.advance()
             elif self.cur_char == "-":
-                tokens.append("MINUS")
+                tokens.append(Token("MINUS"))
+                self.advance()
             elif self.cur_char == "/":
-                tokens.append("DIVIDE")
+                tokens.append(Token("DIVIDE"))
+                self.advance()
             elif self.cur_char == "*":
-                tokens.append("MULTIPLY")
+                tokens.append(Token("MULTIPLY"))
+                self.advance()
             elif self.cur_char == "(":
-                tokens.append("LPAR")
+                tokens.append(Token("LPAR"))
+                self.advance()
             elif self.cur_char == ")":
-                tokens.append("RPAR")
+                tokens.append(Token("RPAR"))
+                self.advance()
             elif self.cur_char in self.numbers:
                 tokens.append(self.make_numbers())
+
+        return tokens
 
     def make_numbers(self) -> Token:
         num_str: str = ""
