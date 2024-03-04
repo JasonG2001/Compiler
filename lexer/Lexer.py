@@ -1,18 +1,17 @@
 from invalid_character_exception import InvalidCharacterException
-from position import Position
 from token import Token
 from typing import List
 
 class Lexer:
     def __init__(self, text: str) -> None:
         self.text: str = text
-        self.pos: Position = Position(-1, 0, -1)
-        self.cur_char: str = self.text[self.pos]
+        self.pos: int = 0
+        self.cur_char: str = text[self.pos]
         self.numbers: str = "0123456789"
     
     def advance(self):
-        self.pos.advance(self.cur_char)
-        self.cur_char = self.text[self.pos.get_idx()] if self.pos.get_idx() < len(self.text) else None
+        self.pos += 1
+        self.cur_char = self.text[self.pos] if self.pos < len(self.text) else None
 
     def make_token(self) -> List[Token]:
         tokens: List[Token] = []
